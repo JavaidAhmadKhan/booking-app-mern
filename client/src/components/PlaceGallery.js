@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import PlaceImg from "./PlaceImg";
+import Image from "./Image";
 
 const PlaceGallery = ({ place }) => {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
@@ -32,7 +33,12 @@ const PlaceGallery = ({ place }) => {
               Close Photos
             </button>
           </div>
-          <PlaceImg place={place} />
+          {place?.photos?.length > 0 &&
+            place.photos.map((photo) => (
+              <div>
+                <Image src={photo} alt="" />
+              </div>
+            ))}
         </div>
       </div>
     );
@@ -44,28 +50,28 @@ const PlaceGallery = ({ place }) => {
         <div>
           {place.photos?.[0] && (
             <div>
-              <img
+              <Image
                 onClick={() => setShowAllPhotos(true)}
                 className="aspect-square object-cover cursor-pointer"
-                src={"http://localhost:8080/uploads/" + place.photos[0]}
+                src={place.photos[0]}
               />
             </div>
           )}
         </div>
         <div className="grid">
           {place.photos?.[1] && (
-            <img
+            <Image
               onClick={() => setShowAllPhotos(true)}
               className="aspect-square object-cover cursor-pointer"
-              src={"http://localhost:8080/uploads/" + place.photos[1]}
+              src={place.photos[1]}
             />
           )}
           <div className="overflow-hidden">
             {place.photos?.[2] && (
-              <img
+              <Image
                 onClick={() => setShowAllPhotos(true)}
                 className="aspect-square object-cover relative top-2 cursor-pointer"
-                src={"http://localhost:8080/uploads/" + place.photos[2]}
+                src={place.photos[2]}
               />
             )}
           </div>

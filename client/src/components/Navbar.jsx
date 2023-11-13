@@ -24,7 +24,7 @@ const Navbar = () => {
             />
           </svg>
         </Link>
-        <div className="flex gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-300">
+        <div className=" invisible md:visible lg:visible flex gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-300">
           <div>Anywhere</div>
           <div className=" border-l border-gray-300"></div>
           <div>Any Week</div>

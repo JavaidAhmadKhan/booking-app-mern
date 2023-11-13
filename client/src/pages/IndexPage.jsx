@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Image from "../components/Image";
 
 export const IndexPage = () => {
   const [places, setPlaces] = useState([]);
@@ -14,12 +15,12 @@ export const IndexPage = () => {
     <div className="mt-8 gap-x-6 gap-y-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {places.length > 0 &&
         places.map((place) => (
-          <Link to={"/place/" + place._id} key={place.id}>
+          <Link to={"/place/" + place._id} key={place._id}>
             <div className="bg-gray-500 rounded-2xl flex mb-2">
               {place.photos?.[0] && (
-                <img
+                <Image
                   className="rounded-2xl object-cover aspect-square"
-                  src={"http://localhost:8080/uploads/" + place.photos?.[0]}
+                  src={place.photos?.[0]}
                   alt=""
                 />
               )}

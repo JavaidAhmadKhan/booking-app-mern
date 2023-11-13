@@ -1,3 +1,5 @@
+import Image from "./Image";
+
 /* eslint-disable react/prop-types */
 const PlaceImg = ({ place, index = 0, className = null }) => {
   if (!place.photos?.length) {
@@ -7,13 +9,7 @@ const PlaceImg = ({ place, index = 0, className = null }) => {
   if (!className) {
     className = "object-cover";
   }
-  return (
-    <img
-      className={className}
-      src={"http://localhost:8080/uploads/" + place.photos[index]}
-      alt="place"
-    />
-  );
+  return <Image className={className} src={place.photos[index]} alt="place" />;
 };
 
 export default PlaceImg;
