@@ -14,7 +14,7 @@ import Place from "./pages/place";
 import Bookings from "./pages/bookings";
 import Booking from "./pages/booking";
 
-axios.defaults.baseURL = "http://localhost:8080";
+axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL
 axios.defaults.withCredentials = true;
 
 function App() {
