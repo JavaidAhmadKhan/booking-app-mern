@@ -54,9 +54,9 @@ const BookingWidget = ({ place }) => {
         Price: ₹{place.price} / per night
       </div>
       <div className="border rounded-2xl mt-4">
-        <div className="flex">
-          <div className="py-3 px-4 ">
-            <label>Check in</label>
+        <div className="flex flex-col lg:flex-row">
+          <div className="py-3 px-4">
+            <label className="">Check in: </label>
             <input
               type="date"
               value={checkIn}
@@ -64,7 +64,7 @@ const BookingWidget = ({ place }) => {
             />
           </div>
           <div className="py-3 px-4 border-l">
-            <label>Check out</label>
+            <label>Check out: </label>
             <input
               type="date"
               value={checkOut}

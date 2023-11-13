@@ -6,8 +6,9 @@ const Navbar = () => {
   const { user } = useContext(UserContext);
   return (
     // sticky top-0 left-0 right-0 z-10 bg-white p-3
-    <div className="">
-      <header className="flex justify-between ">
+
+    <header className="">
+      <div className="flex items-center justify-between ">
         <Link to="/" className="flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +25,7 @@ const Navbar = () => {
             />
           </svg>
         </Link>
-        <div className=" invisible md:visible lg:visible flex gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-300">
+        <div className=" hidden md:flex lg:flex  gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-300">
           <div>Anywhere</div>
           <div className=" border-l border-gray-300"></div>
           <div>Any Week</div>
@@ -81,8 +82,8 @@ const Navbar = () => {
           </div>
           {!!user && <div>{user.name}</div>}
         </Link>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 };
 

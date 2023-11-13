@@ -44,15 +44,15 @@ export default function PlacesPage() {
           places.map((place) => (
             <Link
               to={`/account/places/${place._id}`}
-              className="flex gap-4 bg-gray-100 p-4 rounded-2xl cursor-pointer"
+              className="flex flex-col lg:flex-row gap-4 bg-gray-100 p-4 rounded-2xl cursor-pointer"
               key={place._id}
             >
-              <div className="flex w-32 h-32 bg-gray-300 grow shrink-0">
+              <div className="flex bg-gray-300 grow shrink-0">
                 <PlaceImg place={place} />
               </div>
-              <div className="grow-0 shrink">
-                <h2 className="text-lg">{place.title}</h2>
-                <p className="text-sm mt-2">{place.description}</p>
+              <div className="grow-0 shrink ">
+                <h2 className="text-xl font-bold">{place.title}</h2>
+                <p className="text-md mt-2 leading-8">{place.description}</p>
               </div>
             </Link>
           ))}

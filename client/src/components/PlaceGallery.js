@@ -58,7 +58,7 @@ const PlaceGallery = ({ place }) => {
             </div>
           )}
         </div>
-        <div className="grid">
+        <div className="grid ">
           {place.photos?.[1] && (
             <Image
               onClick={() => setShowAllPhotos(true)}

@@ -132,8 +132,8 @@ const PlacesForm = () => {
           )}
           <h2 className="text-2xl mt-4"></h2>
           <p className="text-gray-500 text-sm"></p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-            <div>
+          <div className="grid  md:grid-cols-4 gap-2">
+            <div className="">
               <h3 className="mt-2 -mb-1">Check in time</h3>
               <input
                 value={checkIn}

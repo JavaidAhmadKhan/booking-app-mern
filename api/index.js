@@ -10,14 +10,15 @@ const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 const fs = require("fs");
 const multer = require("multer");
 const app = express();
-const bcryptSalt = bcrypt.genSaltSync(10);
 const mime = require("mime-types");
-
 const User = require("./models/User.js");
 const Booking = require("./models/Booking.js");
-const jwtSecret = "snjnsfjsdbfjknasjdbfhasb";
 const Place = require("./models/Place.js");
+
+const bcryptSalt = bcrypt.genSaltSync(10);
 const bucket = "javaid-booking-app";
+const jwtSecret = "snjnsfjsdbfjknasjdbfhasb";
+
 
 app.use(express.json());
 app.use(cookieParser());

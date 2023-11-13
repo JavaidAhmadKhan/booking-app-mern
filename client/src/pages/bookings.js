@@ -32,19 +32,19 @@ const Bookings = () => {
             bookings.map((booking) => (
               <Link
                 to={`/account/bookings/${booking._id}`}
-                className="flex gap-4 bg-gray-200 rounded-xl overflow-hidden"
+                className="flex flex-col lg:flex-row gap-4 bg-gray-200 rounded-xl overflow-hidden"
               >
-                <div className="w-48">
+                <div className="w-full lg:w-48">
                   <PlaceImg place={booking.place} />
                 </div>
                 <div className="py-3 grow pr-3 ">
-                  <h2 className="text-xl">{booking.place.title}</h2>
+                  <h2 className="text-xl font-bold mx-4">{booking.place.title}</h2>
                   <div className="text-xl">
                     <BookingDates
                       booking={booking}
                       className={"mt-4 mb-2  text-gray-500"}
                     />
-                    <div className="flex gap-1 items-center">
+                    <div className="flex flex-row gap-1 items-center mx-4">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"

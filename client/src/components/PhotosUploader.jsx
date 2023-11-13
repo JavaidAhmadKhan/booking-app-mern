@@ -66,7 +66,7 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
         </button>
       </div>
 
-      <div className="mt-2 grid gap-2 grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+      <div className="mt-2 grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
         {addedPhotos.length > 0 &&
           addedPhotos.map((link) => (
             <div className="h-32 flex relative" key={link}>
@@ -131,7 +131,7 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
               </button>
             </div>
           ))}
-        <label className="flex cursor-pointer items-center justify-center gap-2 border bg-transparent rounded-2xl p-2 text-2xl text-gray-600">
+        <label className="flex cursor-pointer items-center justify-center gap-2 border bg-transparent rounded-2xl p-2 text-xl lg:text-2xl text-white bg-blue-500">
           <input
             type="file"
             multiple
