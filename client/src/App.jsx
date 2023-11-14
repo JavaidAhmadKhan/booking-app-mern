@@ -3,7 +3,6 @@ import axios from "axios";
 
 import { UserContextProvider } from "./context/UserContext";
 import Navbar from "./pages/IndexPage";
-import "./App.css";
 import Login from "./pages/login";
 import Layout from "./Layout";
 import Register from "./pages/register";
@@ -14,7 +13,7 @@ import Place from "./pages/place";
 import Bookings from "./pages/bookings";
 import Booking from "./pages/booking";
 
-axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL
+axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
 axios.defaults.withCredentials = true;
 
 function App() {

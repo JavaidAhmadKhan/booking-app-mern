@@ -19,7 +19,6 @@ const bcryptSalt = bcrypt.genSaltSync(10);
 const bucket = "javaid-booking-app";
 const jwtSecret = "snjnsfjsdbfjknasjdbfhasb";
 
-
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
@@ -159,15 +158,19 @@ app.post("/api/upload-by-link", async (req, res) => {
 
 //upload photos
 const photosMiddleware = multer({ dest: "/tmp" });
-app.post("/api/upload", photosMiddleware.array("photos", 100), async (req, res) => {
-  const uploadedFiles = [];
-  for (let i = 0; i < req.files.length; i++) {
-    const { path, originalname, mimetype } = req.files[i];
-    const url = await uploadToS3(path, originalname, mimetype);
-    uploadedFiles.push(url);
+app.post(
+  "/api/upload",
+  photosMiddleware.array("photos", 100),
+  async (req, res) => {
+    const uploadedFiles = [];
+    for (let i = 0; i < req.files.length; i++) {
+      const { path, originalname, mimetype } = req.files[i];
+      const url = await uploadToS3(path, originalname, mimetype);
+      uploadedFiles.push(url);
+    }
+    res.json(uploadedFiles);
   }
-  res.json(uploadedFiles);
-});
+);
 
 // places
 

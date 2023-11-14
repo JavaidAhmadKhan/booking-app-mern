@@ -3,8 +3,11 @@ import axios from "axios";
 import { useState } from "react";
 import Image from "../components/Image";
 
+
+
 export default function PhotosUploader({ addedPhotos, onChange }) {
   const [photoLink, setPhotoLink] = useState("");
+  
 
   //upload photo via link
 
@@ -31,6 +34,7 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
       })
       .then((response) => {
         const { data: filenames } = response;
+        setLoading(false);
         onChange((prev) => {
           return [...prev, ...filenames];
         });
@@ -60,7 +64,7 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
         />
         <button
           onClick={addedPhotoByLink}
-          className="bg-gray-200 px-4 rounded-2xl"
+          className="bg-[#FF630B] px-4 rounded-2xl text-white"
         >
           Add&nbsp;photo
         </button>
@@ -77,7 +81,7 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
               />
               <button
                 onClick={(e) => removePhoto(e, link)}
-                className="absolute text-white bg-black bg-opacity-50 rounded-2xl py-2 px-3  right-1 bottom-2 cursor-pointer"
+                className="absolute text-white bg-[#FF630B] bg-opacity-50 rounded-2xl py-2 px-3  right-1 bottom-2 cursor-pointer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -131,29 +135,31 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
               </button>
             </div>
           ))}
-        <label className="flex cursor-pointer items-center justify-center gap-2 border bg-transparent rounded-2xl p-2 text-xl lg:text-2xl text-white bg-blue-500">
-          <input
-            type="file"
-            multiple
-            className="hidden"
-            onChange={uploadPhoto}
-          />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
+        <div className="text-white bg-[#FF630B] rounded-2xl">
+          <label className="flex cursor-pointer items-center justify-center gap-2 border bg-transparent  p-2 text-xl lg:text-2xl ">
+            <input
+              type="file"
+              multiple
+              className="hidden"
+              onChange={uploadPhoto}
             />
-          </svg>
-          Upload
-        </label>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
+              />
+            </svg>
+            Upload
+          </label>
+        </div>
       </div>
     </>
   );

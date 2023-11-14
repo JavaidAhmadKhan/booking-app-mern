@@ -3,7 +3,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 
-import { UserContext } from '../context/UserContext'
+import { UserContext } from "../context/UserContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,20 +14,19 @@ const Login = () => {
   async function handleLoginUser(ev) {
     ev.preventDefault();
     try {
-      const { data } = await axios.post('/login', { email, password });
-      setUser(data)
+      const { data } = await axios.post("/login", { email, password });
+      setUser(data);
       alert(`Successfully logged in`);
 
-      setRedirect(true)
+      setRedirect(true);
     } catch (e) {
-      alert("Login Failed")
+      alert("Login Failed");
     }
   }
 
   if (redirect) {
-    return <Navigate to='/' />
+    return <Navigate to="/" />;
   }
-
 
   return (
     <div className="mt-4 grow flex items-center justify-around">
@@ -39,12 +38,14 @@ const Login = () => {
             placeholder="Enter your Email"
             value={email}
             onChange={(ev) => setEmail(ev.target.value)}
+            required
           />
           <input
             type="password"
             placeholder="Enter your Password"
             value={password}
             onChange={(ev) => setPassword(ev.target.value)}
+            required
           />
           <button className="primary">Login</button>
           <div className="text-center py-2  text-gray-500">
