@@ -25,7 +25,11 @@ const Booking = () => {
   }, [id]);
 
   if (!booking) {
-    return "";
+    return (
+      <div className="flex items-center justify-center h-96">
+        <LoadingCircle />
+      </div>
+    );
   }
 
   return (
