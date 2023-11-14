@@ -22,7 +22,7 @@ export default function PlacesPage() {
       <AccountNavigation />
       <div className="text-center">
         <Link
-          className="inline-flex gap-1 bg-primary text-white py-2 px-6 rounded-full"
+          className="inline-flex gap-1 bg-[#FF630B] text-white py-2 px-6 rounded-full"
           to="/account/places/new"
         >
           <svg

@@ -35,7 +35,7 @@ const Booking = () => {
           <h2 className="text-2xl mb-4">Your booking information</h2>
           <BookingDates booking={booking} />
         </div>
-        <div className="bg-primary px-6 py-3 text-white rounded-2xl">
+        <div className="bg-[#FF630B] px-6 py-3 text-white rounded-2xl">
           <div> Total Price</div>
           <div>
             <h2 className="text-2xl font-medium">₹{booking.price}</h2>
