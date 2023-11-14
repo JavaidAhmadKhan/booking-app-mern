@@ -7,7 +7,7 @@ const PlaceImg = ({ place, index = 0, className = null }) => {
   }
 
   if (!className) {
-    className = "object-cover";
+    className = "object-cover object-center w-full h-[320px]";
   }
   return <Image className={className} src={place.photos[index]} alt="place" />;
 };

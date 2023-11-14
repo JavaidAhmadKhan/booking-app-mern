@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="flex items-center justify-between max-h-screen pt-8 lg:pt-24">
+    <div className="flex items-center justify-between sticky top-[100vh] pt-8 pb-4 lg:pt-24">
       <div>
         <h1 className="font-semibold text-md">Made with love by</h1>
       </div>
