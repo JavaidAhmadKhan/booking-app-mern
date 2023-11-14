@@ -1,6 +1,15 @@
+import "./loading-circle.scss";
 const LoadingCircle = () => {
   return (
-    <div className="w-10 h-10 animate-spin bg-gray-500 rounded-full p-6 outline-dotted"  />
+    <div className="frame">
+      <div className="container">
+        <div className="box-2">
+          <div className="loader-2">
+            <div className="spin" />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

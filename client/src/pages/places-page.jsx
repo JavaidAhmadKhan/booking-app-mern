@@ -4,13 +4,16 @@ import axios from "axios";
 
 import AccountNavigation from "./account-navigation";
 import PlaceImg from "./PlaceImg";
+import LoadingCircle from "../components/LoadingCircle";
 
 export default function PlacesPage() {
   const [places, setPlaces] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios.get("/user-places").then(({ data }) => {
       setPlaces(data);
+      setLoading(false);
     });
   }, []);
 
@@ -40,22 +43,32 @@ export default function PlacesPage() {
         </Link>
       </div>
       <div className="mt-4">
-        {places.length > 0 &&
-          places.map((place) => (
-            <Link
-              to={`/account/places/${place._id}`}
-              className="flex flex-col lg:flex-row gap-4 bg-gray-100 p-4 rounded-2xl cursor-pointer"
-              key={place._id}
-            >
-              <div className="flex bg-gray-300 grow shrink-0">
-                <PlaceImg place={place} />
-              </div>
-              <div className="grow-0 shrink ">
-                <h2 className="text-xl font-bold">{place.title}</h2>
-                <p className="text-md mt-2 leading-8">{place.description}</p>
-              </div>
-            </Link>
-          ))}
+        {loading ? (
+          <div className="flex items-center justify-center h-96">
+            <LoadingCircle />
+          </div>
+        ) : (
+          <>
+            {places.length > 0 &&
+              places.map((place) => (
+                <Link
+                  to={`/account/places/${place._id}`}
+                  className="flex flex-col lg:flex-row gap-4 bg-gray-100 p-4 rounded-2xl cursor-pointer"
+                  key={place._id}
+                >
+                  <div className="flex bg-gray-300 grow shrink-0">
+                    <PlaceImg place={place} />
+                  </div>
+                  <div className="grow-0 shrink ">
+                    <h2 className="text-xl font-bold">{place.title}</h2>
+                    <p className="text-md mt-2 leading-8">
+                      {place.description}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+          </>
+        )}
       </div>
     </div>
   );

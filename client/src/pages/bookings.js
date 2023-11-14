@@ -23,7 +23,7 @@ const Bookings = () => {
     <div>
       <AccountNavigation />
       {loading ? (
-        <div className="flex items-center justify-center p-12">
+        <div className="flex items-center justify-center h-96">
           <LoadingCircle />
         </div>
       ) : (
@@ -38,7 +38,9 @@ const Bookings = () => {
                   <PlaceImg place={booking.place} />
                 </div>
                 <div className="py-3 grow pr-3 ">
-                  <h2 className="text-xl font-bold mx-4">{booking.place.title}</h2>
+                  <h2 className="text-xl font-bold mx-4">
+                    {booking.place.title}
+                  </h2>
                   <div className="text-xl">
                     <BookingDates
                       booking={booking}
