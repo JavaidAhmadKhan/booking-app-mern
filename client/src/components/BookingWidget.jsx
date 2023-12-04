@@ -5,7 +5,6 @@ import { Navigate } from "react-router-dom";
 
 import { UserContext } from "../context/UserContext";
 
-/* eslint-disable react/prop-types */
 const BookingWidget = ({ place }) => {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");

@@ -3,6 +3,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Image from "../components/Image";
 import LoadingCircle from "../components/LoadingCircle";
+import Banner from "../components/Banner";
+import TravelPoint from "../components/TravelPoint";
+import KeyFeatures from "../components/KeyFeatures";
 
 export const IndexPage = () => {
   const [places, setPlaces] = useState([]);
@@ -16,6 +19,9 @@ export const IndexPage = () => {
   }, []);
   return (
     <>
+      <div className="mt-12 mb-12">
+        <Banner />
+      </div>
       {loading ? (
         <div className="flex items-center justify-center h-96">
           <LoadingCircle />
@@ -44,6 +50,12 @@ export const IndexPage = () => {
             ))}
         </div>
       )}
+      <>
+        <TravelPoint />
+      </>
+      <>
+        <KeyFeatures />
+      </>
     </>
   );
 };

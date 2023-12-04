@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { differenceInCalendarDays, format } from "date-fns";
 
 const BookingDates = ({ booking, className }) => {
